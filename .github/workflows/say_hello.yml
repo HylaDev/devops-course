@@ -12,6 +12,6 @@ jobs:
       - name: first_job
         run: echo Ceci est le premier job.
       - name: second_job
-        run: Ceci est le second job
+        run: echo Ceci est le second job
       - name: third_job
         run: echo Ceci est le troisième job
