@@ -1,0 +1,17 @@
+# This is a basic workflow to help you get started with Actions
+
+name: say_hello
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first_job
+        run: echo Ceci est le premier job.
+      - name: second_job
+        run: Ceci est le second job
+      - name: third_job
+        run: echo Ceci est le troisième job
