@@ -1,9 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
-name: say_hello
+name: test schedule
 on:
-  schedule:
-    - cron: "*/5 * * * *" 
+  push:
   workflow_dispatch:
     inputs:
       username:
