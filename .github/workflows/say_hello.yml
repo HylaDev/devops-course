@@ -5,13 +5,20 @@ on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      username:
+        default: Dim
+        type: string
+      level:
+        type: string
+      class: 
+        type: choice
+        options:
+        - jedi
+        - sith
+        - rebel
 jobs:
-  build:
+  player_infos:
     runs-on: ubuntu-latest
     steps:
-      - name: first_job
-        run: echo Ceci est le premier job.
-      - name: second_job
-        run: echo Ceci est le second job
-      - name: third_job
-        run: echo Ceci est le troisième job
+      - run: echo "Le joueur ${{inputs.username}} est de niveau ${{inputs.level}} et joue un ${{inputs.class}}"
