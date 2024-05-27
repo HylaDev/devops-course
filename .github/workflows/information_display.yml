@@ -4,9 +4,18 @@ on:
   push:
 jobs:
     information_display:
+        name: information display
         runs-on: ubuntu-latest
         steps:
         - run: | 
             echo "::notice:: Ceci est une notice."
             echo "::warning:: Ceci est un avertissement."
             echo "::error:: Une erreur est survenue."
+    log_group:
+        runs-on: ubuntu-latest
+        steps:
+        - run: | 
+            echo "::group:: ecoleit"
+            echo "hello, ecole-it."
+            echo "::endgroup::"
+            echo "Ceci n'est pas dans le groupe"
