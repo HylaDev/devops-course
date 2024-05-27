@@ -22,18 +22,15 @@ jobs:
     prepare_tests:
       runs-on: ubuntu-latest
       outputs:
-        HOST: ${{steps.prepare_host.outputs.HOST}}
-        DATABASE: ${{steps.prepare_database.outputs.DATABASE}}
+        HOST: ${{steps.setupdb.outputs.HOST}}
+        DATABASE: ${{steps.setupdb.outputs.DATABASE}}
       steps:
-        - name: "Create host"
-          id: prepare_host
+        - name: "Setup db"
+          id: setupdb
           run: | 
-              echo "HOST=srv1 >> $GITHUB_OUTPUT"
-        - name: "Setup database"
-          id: prepare_database
-          run: | 
-              echo "DATABASE=prep002 >> $GITHUB_OUTPUT"
-
+            echo "HOST=srv1 >> $GITHUB_OUTPUT"
+            echo "DATABASE=prep002 >> $GITHUB_OUTPUT"
+              
     display_infos:
       needs: prepare_tests
       runs-on: ubuntu-latest
