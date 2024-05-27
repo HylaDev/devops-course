@@ -1,0 +1,12 @@
+# This is a basic workflow to help you get started with Actions
+name: Job status
+on:
+  push:
+jobs:
+    information_display:
+        runs-on: ubuntu-latest
+        steps:
+        - run: | 
+            echo "::notice:: Ceci est une notice."
+            echo "::warning:: Ceci est un avertissement."
+            echo "::warning:: Une erreur est survenue."
