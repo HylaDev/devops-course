@@ -19,3 +19,27 @@ jobs:
             echo "hello, ecole-it."
             echo "::endgroup::"
             echo "Ceci n'est pas dans le groupe"
+    prepare_tests:
+      runs-on: ubuntu-latest
+      outputs:
+        HOST: ${{steps.prepare_host.outputs.HOST}}
+        DATABASE: ${{steps.prepare_database.outputs.DATABASE}}
+      steps:
+        - name: "Create host"
+          id: prepare_host
+          run: | 
+              echo "HOST=srv1 >> $GITHUB_OUTPUT"
+        - name: "Setup database"
+          id: prepare_database
+          run: | 
+              echo "DATABASE=prep002 >> $GITHUB_OUTPUT"
+
+    display_infos:
+      needs: prepare_tests
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Display variables"
+          run: |
+              echo "HOST= ${{needs.prepare_tests.outputs.HOST}}"
+              echo "DATABASE= ${{needs.prepare_tests.outputs.DATABASE}}"
+        
