@@ -9,4 +9,4 @@ jobs:
         - run: | 
             echo "::notice:: Ceci est une notice."
             echo "::warning:: Ceci est un avertissement."
-            echo "::warning:: Une erreur est survenue."
+            echo "::error:: Une erreur est survenue."
